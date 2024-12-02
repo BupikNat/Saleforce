@@ -7,7 +7,7 @@ import org.testng.ITestResult;
 
 import java.util.concurrent.TimeUnit;
 
-import static utils.AllureUtils.takeScreenshot;
+//import static utils.AllureUtils.takeScreenshot;
 
 
 public class TestListener implements ITestListener {
@@ -36,7 +36,7 @@ public class TestListener implements ITestListener {
         System.out.printf("======================================== FAILED TEST %s Duration: %ss ========================================%n", iTestResult.getName(),
                 getExecutionTime(iTestResult));
         //WebDriver driver = (WebDriver) iTestResult.getTestContext().getAttribute("driver");
-        takeScreenshot(driver);  //добавляем скриншот в этот метод (Failure), чтобы скрин делался именно при падении теста
+       // takeScreenshot(driver);  //добавляем скриншот в этот метод (Failure), чтобы скрин делался именно при падении теста
     }
 
     @Override
