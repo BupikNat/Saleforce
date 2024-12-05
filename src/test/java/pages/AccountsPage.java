@@ -11,6 +11,16 @@ public class AccountsPage extends BasePage{
         super(driver);
     }
 
+    @Override
+    public BasePage isPageOpened() {
+        return null;
+    }
+
+    @Override
+    public BasePage openPage() {
+        return null;
+    }
+
     @Step("Open Account page")
     public static void openAccountPage() {
         driver.get("https://tms9-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=AllAccounts");
