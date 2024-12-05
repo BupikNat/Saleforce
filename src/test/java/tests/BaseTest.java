@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import pages.LoginPage;
 import pages.NewAccountModal;
 import steps.AccountStep;
 
@@ -23,6 +24,7 @@ public class BaseTest {
     public WebDriverWait wait;
     public NewAccountModal newAccountModal;
     protected AccountStep accountStep;
+    protected LoginPage loginPage;
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -46,6 +48,7 @@ public class BaseTest {
         wait = new WebDriverWait(driver,(Duration.ofSeconds(10)));
         newAccountModal = new NewAccountModal(driver);
         accountStep = new AccountStep(driver);
+        loginPage = new LoginPage(driver);
     }
 
     //Закрыть браузер

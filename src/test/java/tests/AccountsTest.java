@@ -19,7 +19,7 @@ public class AccountsTest extends BaseTest {
     @Description("Заполнение страницы Account данными")
     public void checkCreateAccount() {
         loginPage.open()
-                     //.isPageOpened();
+                     .isPageOpened()
                      .login("tborodich@tms.sandbox", "Password001");
         accountStep.create(account);
     }

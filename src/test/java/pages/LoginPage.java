@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    public BasePage isPageOpened() {
+    public LoginPage isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Login")));
         return this;
     }
