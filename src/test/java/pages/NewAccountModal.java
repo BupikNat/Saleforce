@@ -2,7 +2,9 @@ package pages;
 
 import dto.Account;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import wrappers.Input;
 import wrappers.Picklist;
 import wrappers.Textarea;
@@ -10,18 +12,24 @@ import wrappers.Textarea;
 @Log4j2
 public class NewAccountModal extends BasePage{
 
+    private final By SAVE_BUTTON = By.xpath("//*[@name='SaveEdit']");
+
     public NewAccountModal(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    public BasePage isPageOpened() {
-        return null;
+    public NewAccountModal isPageOpened() {
+        log.info("Save button is visible on page");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_BUTTON));
+        return this;
     }
 
     @Override
-    public BasePage openPage() {
-        return null;
+    public NewAccountModal openPage() {
+        log.info("Open Account page");
+        driver.get("https://tms9-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=AllAccounts");
+        return this;
     }
 
     //Выбрать различные типы данных на странице - инпуты, текст ареа и выпадающие списки. Выбор по названию поля. XPath указаны в wrappers для каждого типа поля

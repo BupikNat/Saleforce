@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import pages.AccountsPage;
 import pages.NewAccountModal;
 
+@Log4j2
 public class AccountStep {
 
     AccountsPage accountsPage;
@@ -17,6 +18,7 @@ public class AccountStep {
     }
 
     public AccountStep create (Account account) {
+        log.info("Create account");
         accountsPage.openAccountPage();
         newAccountModal.createAccount(account);
         accountsPage.clickOnSaveButton();

@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
     @Override
     public LoginPage isPageOpened() {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Login")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
             return this;
         } catch (TimeoutException e) {
             log.error(e.getMessage());
@@ -31,22 +31,18 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Override
-    public BasePage openPage() {
-        return null;
-    }
-
     //Открыть страницу Salesforce
+    @Override
     @Step("Open Page Salesforce")
-    public LoginPage open() {
+    public LoginPage openPage() {
         log.info("Open Login page");
         driver.get("https://tms9-dev-ed.develop.my.salesforce.com");
-    return this;
-}
+        return this;
+    }
 
     @Step("Login into Salesforce")
     public LoginPage login(String user, String password) {
-        log.info("Enter login and password and click Login button");
+        log.info("Enter login '{}' and password '{}' and click Login button", user, password);
         driver.findElement(USERNAME_INPUT).sendKeys(user);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
