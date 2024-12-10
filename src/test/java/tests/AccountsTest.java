@@ -1,28 +1,55 @@
 package tests;
 
 
+import com.github.javafaker.Faker;
+import dto.Account;
 import io.qameta.allure.Description;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
-import pages.AccountsPage;
-import pages.LoginPage;
-import pages.NewAccountModal;
 
-
+@Log4j2
 public class AccountsTest extends BaseTest {
+
+    Faker faker = new Faker();
+
+    //Account account = getAccount("Hot", "Prospect", "Public", "Banking");
+
+    //Можно создать Builder - благодаря аннотации в классе Account
+    Account account1 = Account.builder()
+            .name(faker.company().name())
+            .rating("Hot")
+            .phone(faker.phoneNumber().phoneNumber())
+            .fax(faker.phoneNumber().cellPhone())
+            .accountNumber(faker.number().digit())
+            .website(faker.internet().url())
+            .accountsite(faker.company().url())
+            .tickersymbol(faker.company().suffix())
+            .type("Prospect")
+            .ownership("Public")
+            .industry("Banking")
+            .employees(faker.funnyName().name())
+            .revenue(faker.commerce().price())
+            .siccode(faker.code().imei())
+            .billingstreet(faker.address().streetAddress())
+            .billingcity(faker.address().city())
+            .billingstate(faker.address().state())
+            .billingzip(faker.address().zipCode())
+            .billingcountry(faker.address().country())
+            .shippingstreet(faker.address().streetAddress())
+            .shippingcity(faker.address().city())
+            .shippingstate(faker.address().state())
+            .shippingzip(faker.address().zipCode())
+            //.shippingcountry(faker.address().country())
+            .build();
 
     //Открыть страницу Account - заполнить её данными (путь к полям указан в NewAccountModal) - нажать кнопку Save
     @Test
     @Description("Заполнение страницы Account данными")
     public void checkCreateAccount() {
-        LoginPage.login("tborodich@tms.sandbox", "Password001");
-        AccountsPage.openAccountPage();
-        newAccountModal.createAccount("TMS-Nataly", "Hot", "0290001100", "0290001199", "1",
-                "www.leningrad.ru", "none", "###", "Prospect", "Public",
-                "Banking", "10", "100", "111", "Ulica", "Minsk",
-                "Urucca", "220056", "Belarus", "Ulica", "Minsk",
-                "Urucca", "22056", "Belarus");
-        AccountsPage.clickOnSaveButton();
+        log.info("Create account");
+        loginPage.openPage()
+                     .isPageOpened()
+                     .login("tborodich@tms.sandbox", "Password001");
+        accountStep.create(account1);
     }
 }
