@@ -32,7 +32,7 @@ public class AccountsPage extends BasePage{
         //driver.get("https://tms9-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=AllAccounts");
         //driver.findElement(NEW_BUTTON).click();
         driver.get("https://tms9-dev-ed.develop.lightning.force.com/lightning/o/Account/new"); //открыть страницу Accounts по прямой ссылке, а не через меню
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@name='SaveEdit']")));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@name='SaveEdit']")));
         return new NewAccountModal(driver);
     }
 
