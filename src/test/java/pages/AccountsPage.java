@@ -16,12 +16,12 @@ public class AccountsPage extends BasePage{
         super(driver);
     }
 
-    @Override
+    //@Override
     public BasePage isPageOpened() {
         return null;
     }
 
-    @Override
+    //@Override
     public BasePage openPage() {
         return null;
     }

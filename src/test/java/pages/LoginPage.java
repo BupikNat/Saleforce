@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @Override
+    //@Override
     public LoginPage isPageOpened() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
@@ -32,7 +32,7 @@ public class LoginPage extends BasePage {
     }
 
     //Открыть страницу Salesforce
-    @Override
+    //@Override
     @Step("Open Page Salesforce")
     public LoginPage openPage() {
         log.info("Open Login page");

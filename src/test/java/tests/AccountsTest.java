@@ -39,7 +39,7 @@ public class AccountsTest extends BaseTest {
             .shippingcity(faker.address().city())
             .shippingstate(faker.address().state())
             .shippingzip(faker.address().zipCode())
-            .shippingcountry(faker.address().country())
+            //.shippingcountry(faker.address().country())
             .build();
 
     //Открыть страницу Account - заполнить её данными (путь к полям указан в NewAccountModal) - нажать кнопку Save

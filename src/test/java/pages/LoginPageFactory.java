@@ -14,12 +14,12 @@ public class LoginPageFactory extends BasePage{
         //PageFactory.initElements(driver, this);  //инициализирует веб-элементы на страницу, можно вставлять не в конструктор, а в отдельном методе ниже
     }
 
-    @Override
+    //@Override
     public BasePage isPageOpened() {
         return null;
     }
 
-    @Override
+    //@Override
     public BasePage openPage() {
         return null;
     }

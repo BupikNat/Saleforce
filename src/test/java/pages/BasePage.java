@@ -21,8 +21,8 @@ public abstract class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    public abstract BasePage isPageOpened();
-    public abstract BasePage openPage();
+    //public abstract BasePage isPageOpened();
+   // public abstract BasePage openPage();
 
 
    /*

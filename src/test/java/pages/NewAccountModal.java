@@ -18,14 +18,14 @@ public class NewAccountModal extends BasePage{
         super(driver);
     }
 
-    @Override
+    //@Override
     public NewAccountModal isPageOpened() {
         log.info("Save button is visible on page");
         wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_BUTTON));
         return this;
     }
 
-    @Override
+    //@Override
     public NewAccountModal openPage() {
         log.info("Open Account page");
         driver.get("https://tms9-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=AllAccounts");
